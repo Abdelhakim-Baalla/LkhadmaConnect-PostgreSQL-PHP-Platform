@@ -65,7 +65,7 @@ cp .env.example .env
 ## 📊 Structure du Projet
 
 ```
-upwork-clone/
+LkhadmaConnect/
 ├── app/
 │   ├── Controllers/
 │   ├── Models/
@@ -76,8 +76,8 @@ upwork-clone/
 ├
 ├── public/
 |   ├── assets/
-|`  |_index.php
-├
+|   |_index.php
+|
 └── vendor/
 |── docs/diagrams/
 ```
@@ -106,4 +106,3 @@ Les diagrammes UML sont disponibles dans le dossier `docs/diagrams/`:
 ### Avertissement ⚠️
 Ce projet est en cours de développement et certaines fonctionnalités peuvent être sujettes à changement.
 ---
-Développé avec ❤️ pour le projet de fin d'études - Promotion 2025
