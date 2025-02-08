@@ -14,17 +14,7 @@ class AuthController{
 
   public function handleLogin() {
 
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-    $user = new User;
-    if ($user->login($username, $password)) {
-        session_start();
-        $_SESSION['user'] = $user->getFirstName();
-        header('Location: /Dash');
-    } else {
-        echo "Invalid credentials.";
-    }
+  
 }
 }
 

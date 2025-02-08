@@ -1,7 +1,7 @@
 <?php
 namespace app\Routes;
 
-class Router {
+class Router{
     private string $controller = 'app\controllers\HomeController';
     private string $method = 'index';
     private array $params = array();

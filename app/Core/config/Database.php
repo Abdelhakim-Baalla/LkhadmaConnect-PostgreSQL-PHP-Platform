@@ -59,11 +59,4 @@ class Database {
 }
 
 
-$db = Database::getInstance()->getConnection();
-
-// if ($db) {
-//     echo "<h1>Database </h1>";
-// } else {
-//     echo "<h1>No Connection </h1>";
-// }
 ?>
