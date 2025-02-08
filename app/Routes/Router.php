@@ -23,7 +23,7 @@ class Router{
             if (class_exists($controller)) {
                 $this->controller = $controller;
             } else {
-                require_once dirname(__DIR__, 1) . '\Views\pages\error404.php';
+                require_once dirname(__DIR__, 1) . '/app/views/component/error404.php';
                 exit;
             }
         }
@@ -51,7 +51,7 @@ class Router{
             $this->convertArray($_REQUEST);
         }
     
-        call_user_func_array([$objectController, $this->method], $this->params);
+        echo call_user_func_array([$objectController, $this->method], $this->params);
     }
     
 
