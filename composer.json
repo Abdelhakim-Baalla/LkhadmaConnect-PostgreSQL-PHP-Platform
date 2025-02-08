@@ -5,13 +5,9 @@
             "app\\": "app/"
         }
     },
-    "authors": [
-        {
-            "name": "Abdelhakim Baalla",
-            "email": "abdelhakimbaalla50@gmail.com"
-        }
-    ],
+    
     "require": {
-        "phpdevcommunity/php-dotenv": "^3.0"
+        "phpdevcommunity/php-dotenv": "^3.0",
+        "vlucas/phpdotenv": "^5.6"
     }
 }
