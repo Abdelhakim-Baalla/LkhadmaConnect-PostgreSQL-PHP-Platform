@@ -1,5 +1,16 @@
 {
+    "name": "aamirelamiri/LkhadmaConnect_PostgreSQL_PHP_Platform",
+    "description": "LkhadmaConnect-PostgreSQL-PHP-Platform",
+    "type": "project",
     "require": {
-        "vlucas/phpdotenv": "^5.6"
+      "php": "^8.1",
+      "ext-pdo": "*",
+      "phpdotenv/phpdotenv": "^5.6"  
+    },
+    "autoload": {
+      "psr-4": {
+        "app\\": "app/"
+      }
     }
-}
+  }
+  
