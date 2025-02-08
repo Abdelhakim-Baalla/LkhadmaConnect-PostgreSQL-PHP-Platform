@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "108be68e4e2b97fed51d36a10eed0849",
+    "content-hash": "19a1752abadfe5af1fe19d1a52fc5b90",
     "packages": [
         {
             "name": "graham-campbell/result-type",
@@ -67,6 +67,50 @@
                 }
             ],
             "time": "2024-07-20T21:45:45+00:00"
+        },
+        {
+            "name": "phpdevcommunity/php-dotenv",
+            "version": "3.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpdevcommunity/php-dotenv.git",
+                "reference": "896b6b1a1184dddd76e536fed674560f4381b400"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpdevcommunity/php-dotenv/zipball/896b6b1a1184dddd76e536fed674560f4381b400",
+                "reference": "896b6b1a1184dddd76e536fed674560f4381b400",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4"
+            },
+            "require-dev": {
+                "phpdevcommunity/unitester": "^0.1.0@alpha"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PhpDevCommunity\\": "src",
+                    "Test\\PhpDevCommunity\\": "tests"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "F. Michel",
+                    "homepage": "https://www.phpdevcommunity.com"
+                }
+            ],
+            "description": "PHP-DotEnv is a lightweight PHP library designed to simplify the management of environment variables in your PHP applications.",
+            "support": {
+                "issues": "https://github.com/phpdevcommunity/php-dotenv/issues",
+                "source": "https://github.com/phpdevcommunity/php-dotenv/tree/3.0.1"
+            },
+            "time": "2024-12-01T16:42:44+00:00"
         },
         {
             "name": "phpoption/phpoption",
