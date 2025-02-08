@@ -1,16 +1,17 @@
 {
-    "name": "aamirelamiri/LkhadmaConnect_PostgreSQL_PHP_Platform",
-    "description": "LkhadmaConnect-PostgreSQL-PHP-Platform",
-    "type": "project",
-    "require": {
-      "php": "^8.1",
-      "ext-pdo": "*",
-      "phpdotenv/phpdotenv": "^5.6"  
-    },
+    "name": "youcode/lkhadma-connect-postgre-sql-php-platform",
     "autoload": {
-      "psr-4": {
-        "app\\": "app/"
-      }
+        "psr-4": {
+            "app\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Abdelhakim Baalla",
+            "email": "abdelhakimbaalla50@gmail.com"
+        }
+    ],
+    "require": {
+        "phpdevcommunity/php-dotenv": "^3.0"
     }
-  }
-  
+}
