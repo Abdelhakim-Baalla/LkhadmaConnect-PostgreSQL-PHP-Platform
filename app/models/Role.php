@@ -3,14 +3,14 @@ namespace app\models;
 class Role
 {
     private $id;
-    private $name;
-    private $description;
+    private $role_name;
+    private $role_description;
 
     public function __construct($id, $name, $description)
     {
         $this->id = $id;
-        $this->name = $name;
-        $this->description = $description;
+        $this->role_name = $name;
+        $this->role_description = $description;
     }
 
     public function getId()
@@ -19,11 +19,11 @@ class Role
     }
     public function getName()
     {
-        return $this->name;
+        return $this->role_name;
     }
     public function getDescription()
     {
-        return $this->description;
+        return $this->role_description;
     }
 
     public function setId($id)
@@ -32,10 +32,10 @@ class Role
     }
     public function setName($name)
     {
-        $this->name = $name;
+        $this->role_name = $name;
     }
     public function setDescription($description)
     {
-        $this->description = $description;
+        $this->role_description = $description;
     }
 }

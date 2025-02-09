@@ -14,6 +14,9 @@ abstract class Crud implements CrudInterface
 
     public function insert(string $table,array $data):int
     {
+
+        // $car = array("namr" => "Ford", "lastname" => "Mustang", "year" => 1964);
+
         $columns = implode(', ', array_keys($data));
         $values = implode(', ', array_fill(0, count($data), '?'));
 

@@ -3,9 +3,10 @@
 use app\models\Avi;
 use app\models\Utilisateur;
 use app\models\Categorie;
+use app\models\Crud;
 use app\models\Offre;
 
-class Project
+class Project extends Crud
 {
     private $id;
     private $title;
@@ -20,20 +21,27 @@ class Project
     private Avi $Avis;
     private Offre $Offer;
 
-    public function __construct($id, $title, $description, $photo, $duree, $budget, $status, $Freelencer, $categorie, $Client, $Avis, $Offer)
+    public function __construct()
     {
-        $this->id = $id;
-        $this->title = $title;
-        $this->description = $description;
-        $this->photo = $photo;
-        $this->duree = $duree;
-        $this->budget = $budget;
-        $this->status = $status;
-        $this->Freelencer = $Freelencer;
-        $this->categorie = $categorie;
-        $this->Client = $Client;
-        $this->Avis = $Avis;
-        $this->Offer = $Offer;
+        // $this->id = $id;
+        // $this->title = $title;
+        // $this->description = $description;
+        // $this->photo = $photo;
+        // $this->duree = $duree;
+        // $this->budget = $budget;
+        // $this->status = $status;
+        // $this->Freelencer = $Freelencer;
+        // $this->categorie = $categorie;
+        // $this->Client = $Client;
+        // $this->Avis = $Avis;
+        // $this->Offer = $Offer;
+    }
+    public function __call($name, $arguments) {
+        if($name == "BuilderUser"){
+            if(count($arguments) == 1){
+                $this->id = $arguments[0];
+        }
+        }
     }
 
     public function getId()
