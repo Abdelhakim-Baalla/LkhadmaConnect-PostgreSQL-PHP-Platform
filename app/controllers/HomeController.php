@@ -7,8 +7,8 @@ class HomeController{
 
 
   public  function index(){
-
-        return "<h1>this is fucking home</h1>";
+echo "<h1>this is fucking home</h1>";
+        return '';
         
     }
   
