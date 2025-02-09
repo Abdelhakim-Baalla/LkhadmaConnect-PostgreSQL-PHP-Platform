@@ -1,5 +1,6 @@
 <?php
 
+namespace app\models;
 use app\models\Avi;
 use app\models\Utilisateur;
 use app\models\Categorie;
@@ -36,10 +37,12 @@ class Project extends Crud
         // $this->Avis = $Avis;
         // $this->Offer = $Offer;
     }
-    public function __call($name, $arguments) {
+
         if($name == "BuilderUser"){
-            if(count($arguments) == 1){
-                $this->id = $arguments[0];
+            if(count($arguments) == 2){
+                $this->title = $arguments[0];
+                $this->description = $arguments[1];
+            } 
         }
         }
     }
