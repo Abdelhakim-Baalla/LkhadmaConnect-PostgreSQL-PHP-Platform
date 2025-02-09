@@ -4,7 +4,7 @@ namespace app\Controllers;
 
 use app\models\Utilisateur;
 use app\Core\config\Database;
-use Regex;
+use app\Core\utils\Regex;
 
 class AuthController{
 
@@ -58,30 +58,30 @@ class AuthController{
         exit();
     }
     
-
-  public function login(string $email, string $password): bool {
-$Utilisateur = new Utilisateur($email,$password);
-$user = $Utilisateur->login();
-    if ($user && password_verify($password, $user->getPassword())) {
-        session_start();                        
-        $_SESSION['user_id'] = $user->getId();
-
-        $_SESSION['user_email'] = $user->getEmail();
-
-        $_SESSION['user_role'] = $user->getRole()->getName();
+    public function login() {
+        // die("srsdfghjk");
+        $email = $this->regex->ValidationEmail($_POST["email"]);
+        $password = $_POST["password"];
         
-        $_SESSION['user_i'] = $user->getRole()->getId();
+        $Utilisateur = new Utilisateur($email, $password);
+                $user = $Utilisateur->login();
+    
+        if ($user && password_verify($password, $user->getPassword())) {
+            session_start();
+            $_SESSION['user_id'] = $user->getId();
+            $_SESSION['user_email'] = $user->getEmail();
 
-
-   $_SESSION['last_name'] = $user->getLastname() ;
-
-        $_SESSION['first_name'] = $user->getFirstname() ;
-        
-        return true;
+            $_SESSION['user_role'] = $user->getRole()->getName();
+            
+            $_SESSION['user_i'] = $user->getRole()->getId();
+            $_SESSION['last_name'] = $user->getLastname();
+            $_SESSION['first_name'] = $user->getFirstname();
+            
+            return true;
+        }
+                return false;
     }
-    return false;
-
-}
+    
 
 public function logout(){
 

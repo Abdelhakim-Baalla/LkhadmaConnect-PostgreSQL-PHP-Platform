@@ -4,6 +4,7 @@ namespace app\models;
 use app\models\Avi;
 use app\models\Utilisateur;
 use app\models\Categorie;
+use app\models\Crud;
 use app\models\Offre;
 
 class Project extends Crud
@@ -37,11 +38,6 @@ class Project extends Crud
         // $this->Offer = $Offer;
     }
 
-    public function __call($name, $arguments) {
-        if($name == "BuilderUser"){
-            if(count($arguments) == 1){
-                $this->id = $arguments[0];
-        }
         if($name == "BuilderUser"){
             if(count($arguments) == 2){
                 $this->title = $arguments[0];
