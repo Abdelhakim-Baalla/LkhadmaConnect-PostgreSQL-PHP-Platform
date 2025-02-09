@@ -1,11 +1,12 @@
 <?php
+namespace app\controllers;
 
+use app\Controllers\MainController;
 
-    namespace app\Controllers;
     use  app\models\Crud;
     use  app\models\Project;
 
-    class ProjectController{
+    class ProjectController extends MainController{
 
         private Project $project;
         public function __construct()
@@ -14,8 +15,9 @@
         }
 
         public function index(){
-
+            $this->renderView("pages","ClientDashboard","jbdjsdjsbc",[]);
         }
+        
 
         public  function findprojects(){
          
