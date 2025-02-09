@@ -5,8 +5,7 @@
     use  app\models\Crud;
     use  app\models\Project;
 
-    class ProjectController{
-
+    class ProjectController{  
         private Project $project;
         public function __construct()
         {
@@ -18,12 +17,14 @@
         }
 
         public  function findprojects(){
-         
-            $vat =  $this->project->selectAll('Projets');
-                       
-            var_dump($vat);
-            
+            $khara = $this->project->selectAll('Projets');
+            var_dump($khara);
+        }
+
+        public  function addprojects(){
+            // $data = ['titre' => 'hazdhyhy'];
+            // $this->project->insert('Projets', $data);
         }
         
-      }
+    }
 ?>

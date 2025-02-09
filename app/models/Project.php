@@ -47,7 +47,6 @@ class Project extends Crud
         }
         }
     
-
     public function getId()
     {
         return $this->id;
