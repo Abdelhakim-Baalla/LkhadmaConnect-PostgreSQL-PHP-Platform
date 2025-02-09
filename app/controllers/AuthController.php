@@ -51,6 +51,13 @@ public function logout(){
     header('Location: /login');
     exit;
 }
+public function isLogin(){
+
+    session_start();
+
+    return isset($_SESSION["user_id"]);
+
+}
 }
 
 
