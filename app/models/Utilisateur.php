@@ -3,9 +3,10 @@
 namespace app\models;
 
 use app\models\Avi;
+use app\models\Crud;
 use app\models\Role;
 
-class Utilisateur
+class Utilisateur extends Crud
 {
     private $id;
     private $firstname;
@@ -18,18 +19,18 @@ class Utilisateur
     private $photo;
     private $competence = [];
 
-    public function __construct($id, $firstname, $lastname, $email, $password, $rating, $projects, $role, $photo, $competence)
+    public function __construct()
     {
-        $this->id = $id;
-        $this->firstname = $firstname;
-        $this->lastname = $lastname;
-        $this->email = $email;
-        $this->password = $password;
-        $this->rating = $rating;
-        $this->projects = $projects;
-        $this->role = $role;
-        $this->photo = $photo;
-        $this->competence = $competence;
+        // $this->id = $id;
+        // $this->firstname = $firstname;
+        // $this->lastname = $lastname;
+        // $this->email = $email;
+        // $this->password = $password;
+        // $this->rating = $rating;
+        // $this->projects = $projects;
+        // $this->role = $role;
+        // $this->photo = $photo;
+        // $this->competence = $competence;
     }
 
     public function getId()

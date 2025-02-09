@@ -58,6 +58,15 @@ public function isLogin(){
     return isset($_SESSION["user_id"]);
 
 }
+function getUser() {
+    if(!$this->isLogin()){
+        return false;
+    }
+    $user = new \app\models\Utilisateur();
+    $user->findbyid($_SESSION["user_id"],"users");
+    return $user;
+    
+}
 }
 
 
