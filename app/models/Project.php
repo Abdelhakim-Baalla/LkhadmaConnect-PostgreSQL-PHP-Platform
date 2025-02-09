@@ -37,7 +37,8 @@ class Project extends Crud
         // $this->Avis = $Avis;
         // $this->Offer = $Offer;
     }
-
+    public function __call($name, $arguments) {
+    
         if($name == "BuilderUser"){
             if(count($arguments) == 2){
                 $this->title = $arguments[0];
@@ -45,7 +46,7 @@ class Project extends Crud
             } 
         }
         }
-    }
+    
 
     public function getId()
     {
