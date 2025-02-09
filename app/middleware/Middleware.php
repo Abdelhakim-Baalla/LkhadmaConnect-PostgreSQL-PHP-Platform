@@ -1,6 +1,12 @@
 <?php
+namespace app\middleware;
+
+
 
  class Middleware{
+    public function __construct()
+    {
+    }
 
     public static function isAuth() {
         session_start();
@@ -10,7 +16,7 @@
         }
         return true;
     }
-
+   
     
 }
 

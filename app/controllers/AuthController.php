@@ -58,7 +58,7 @@ public function isLogin(){
     return isset($_SESSION["user_id"]);
 
 }
-function getUser() {
+public function getUser() {
     if(!$this->isLogin()){
         return false;
     }
@@ -66,6 +66,14 @@ function getUser() {
     $user->findbyid($_SESSION["user_id"],"users");
     return $user;
     
+}
+public function hasRole($role) {
+    if (empty($this->isLogin()) || $_SESSION['user_role'] !== $role) {
+        
+        return false;
+    }
+    
+    return true;
 }
 }
 
