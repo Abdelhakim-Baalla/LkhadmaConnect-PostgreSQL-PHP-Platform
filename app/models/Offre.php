@@ -1,7 +1,7 @@
 <?php
 namespace app\models;
 
-use Project;
+use app\models\Project;
 use app\models\Utilisateur;
 
 class Offre {
