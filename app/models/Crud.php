@@ -57,4 +57,10 @@ abstract class Crud implements CrudInterface
 
         return $stmt->rowCount();
     }
+    public function findbyid(int $id,$table) {
+        $stmt = Database::getInstance()->getConnection()->prepare("SELECT * FROM {$table} WHERE id = ?");
+        $stmt->execute([$id]);
+        $stmt->setFetchMode(PDO::FETCH_CLASS, get_class($this));
+        return $stmt->fetch();
+    }
 }

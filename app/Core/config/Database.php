@@ -5,7 +5,7 @@ use Dotenv\Dotenv;
 use PDO;
 use PDOException;
 
-class Database {
+class Database{
     private static $servername;
     private static $username;
     private static $password;

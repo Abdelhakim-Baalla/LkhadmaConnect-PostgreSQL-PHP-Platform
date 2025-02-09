@@ -2,7 +2,7 @@
 namespace app\Routes;
 
 class Router{
-    private string $controller = 'app\controllers\HomeController';
+    private string $controller = 'app\\controllers\\HomeController';
     private string $method = 'index';
     private array $params = array();
 
@@ -11,19 +11,21 @@ class Router{
         $this->Sender();
     }
 
-    public function Sender(): void
+    public function Sender()
     {
         $uri = $_SERVER['REQUEST_URI'] ?? '';
         $uri = explode('/', trim(strtolower($uri), '/'));
-    
+    // var_dump(   $uri);
         if (!empty($uri[0])) {
             $controller = ucwords($uri[0]) . 'Controller';
             $controller = "\\app\\Controllers\\" . $controller;
-
+// echo  $controller;
             if (class_exists($controller)) {
+                // echo "HGDSU";
                 $this->controller = $controller;
+                // var_dump( $this->controller);
             } else {
-                require_once dirname(__DIR__, 1) . '/app/views/component/error404.php';
+                require_once dirname(__DIR__, 1) . '\\views\\component\\error404.php';
                 exit;
             }
         }
@@ -32,8 +34,9 @@ class Router{
         $objectController = new $class;
     
         if (isset($uri[1])) {
+            // echo "HGDSUSQSQ";
             $method = $uri[1];
-    
+    // var_dump($method);
             if (method_exists($objectController, $method)) {
                 $this->method = $method;
             } else {
