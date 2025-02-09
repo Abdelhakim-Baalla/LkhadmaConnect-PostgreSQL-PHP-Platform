@@ -54,15 +54,15 @@ class Utilisateur extends Crud
                 //To do 
                 // ajouter les 8 argument 
                   // private $id;
-    // private $firstname;
-    // private $lastname;
-    // private $email;
-    // private $password;
-    // private Avi $rating;
-    // private $projects;
-    // private Role $role;
-    // private $photo;
-    // private $competence = [];
+                // private $firstname;
+                // private $lastname;
+                // private $email;
+                // private $password;
+                // private Avi $rating;
+                // private $projects;
+                // private Role $role;
+                // private $photo;
+                // private $competence = [];
 
             }
         }

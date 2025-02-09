@@ -15,11 +15,11 @@ class Router{
     {
         $uri = $_SERVER['REQUEST_URI'] ?? '';
         $uri = explode('/', trim(strtolower($uri), '/'));
-    // var_dump(   $uri);
+    // var_dump($uri);
         if (!empty($uri[0])) {
             $controller = ucwords($uri[0]) . 'Controller';
             $controller = "\\app\\Controllers\\" . $controller;
-// echo  $controller;
+    // echo  $controller;
             if (class_exists($controller)) {
                 // echo "HGDSU";
                 $this->controller = $controller;
