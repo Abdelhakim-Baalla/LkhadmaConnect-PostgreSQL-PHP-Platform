@@ -54,8 +54,7 @@ class Router{
             $this->convertArray($_REQUEST);
         }
     
-        call_user_func_array([$objectController, $this->method], $this->params);
-
+        echo call_user_func_array([$objectController, $this->method], $this->params);
     }
     
 
