@@ -26,7 +26,7 @@ class Regex{
         if(preg_match($pregMuchExpretion,$Email)){
 
             
-            return true;
+            return $Email;
         }
         return false;
     }

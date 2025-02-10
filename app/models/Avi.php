@@ -1,5 +1,6 @@
 <?php
 namespace app\models;
+
 class Avi{
     private $id;
     private $content;
