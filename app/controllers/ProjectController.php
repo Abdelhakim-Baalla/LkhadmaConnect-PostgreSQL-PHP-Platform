@@ -23,9 +23,10 @@ use app\Controllers\MainController;
         
 
         public  function findprojects(){
-            $tys = $this->project->selectAll('Projets');
-            foreach ($tys as $tyys){
+            $projects = $this->project->selectAll('Projets');
+            foreach ($projects as $tyys){
                 echo "<div class='bg-white p-4 rounded shadow'>
+                <img src= '{$tyys->photo}' alt='photo of {$tyys->titre} project'>
                 <h3 class='text-lg font-bold'>$tyys->titre</h3>
                 <p>$tyys->description</p>
                 <p class='text-sm text-gray-600'>Budget: $tyys->budget</p>
