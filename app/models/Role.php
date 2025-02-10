@@ -1,16 +1,24 @@
 <?php 
 namespace app\models;
-class Role
-{
+
+use app\models\Crud;
+
+class Role extends Crud{
     private $id;
     private $role_name;
     private $role_description;
 
-    public function __construct($id, $name, $description)
+    public function __construct()
     {
-        $this->id = $id;
-        $this->role_name = $name;
-        $this->role_description = $description;
+        // $this->id = $id;
+        // $this->role_name = $name;
+        // $this->role_description = $description;
+    }
+    public function __call($name, $arguments) {
+        if($name == "BuilderRole"){
+            if(count($arguments) == 1){
+                $this->id = $arguments[0];
+        }}
     }
 
     public function getId()

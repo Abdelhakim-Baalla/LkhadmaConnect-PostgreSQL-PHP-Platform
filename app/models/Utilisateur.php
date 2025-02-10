@@ -14,15 +14,19 @@ class Utilisateur extends Crud
     private $lastname;
     private $email;
     private $password;
-    private Avi $rating;
+    private float $rating;
     private $projects;
     private Role $role;
     private $photo;
+
+    private $phone;
+    private $role_id;
+
     private $competence = [];
 
     public function __construct()
     {
-  
+        $this->role = new Role;
     }
     public function __call($name, $arguments) {
         if($name == "BuilderUser"){
@@ -47,6 +51,9 @@ class Utilisateur extends Crud
                 $this->password = $arguments[4];
                 $this->photo = $arguments[5];
                 $this->role = $arguments[6];
+                $this->phone = $arguments[7];
+
+                
             }
             
             if(count($arguments) == 8){
@@ -71,6 +78,10 @@ class Utilisateur extends Crud
     public function getId()
     {
         return $this->id;
+    }
+    public function getRoleId()
+    {
+        return $this->role_id;
     }
     public function getFirstname()
     {
@@ -114,6 +125,15 @@ class Utilisateur extends Crud
 
         $this->id = $id;
     }
+    public function setPhone($phone)
+    {
+
+        $this->phone = $phone;
+    }
+    public function getPhone()
+    {
+        return $this->phone;
+    }
     public function setFirstname($firstname)
     {
         $this->firstname = $firstname;
@@ -151,15 +171,16 @@ class Utilisateur extends Crud
         $this->competence = $competence;
     }
 
-    public function login(): Utilisateur {
+    public function login() {
       $query ="
-                SELECT users.*, roles.name as role_name FROM users 
-                INNER JOIN roles ON users.role_id = roles.id 
-                WHERE email = ?";
+               SELECT *FROM users where email =?"; 
+				
+               
             $stmt = Database::getInstance()->getConnection()->prepare($query);
+           echo $this->email;
             $stmt->execute([$this->email]);
-            $user = $stmt->fetch(\PDO::FETCH_OBJ); 
-        // var_dump( $user);
+            $user = $stmt->fetchObject(Utilisateur::class); 
+          var_dump( $user);
         return $user;
         }
 }

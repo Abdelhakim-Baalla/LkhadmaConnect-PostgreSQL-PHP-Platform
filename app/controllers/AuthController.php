@@ -1,83 +1,80 @@
 <?php
 
-namespace app\Controllers;
+namespace app\controllers;
 
+use app\models\Role;
+use app\Core\utils\Regex;
 use app\models\Utilisateur;
 use app\Core\config\Database;
-use app\Core\utils\Regex;
 
 class AuthController{
 
-    private Utilisateur   $user ;
+    private Utilisateur $user ;
+    private Role $role;
 
  private Regex   $regex ;
     public function __construct()
     {
+        $this->role = new Role;
+
         $this->regex = new Regex;
         $this->user = new Utilisateur;
 
     }
 
+    public function signupviews(){
 
+        require_once dirname(__DIR__, 1) . '\\views\\pages\\SignUp.php';
+
+    }
     public function index(){
 
-        if ($this->isLogin()) {
-            header('Location: /dashboard');
-            exit();
-        }
-        require_once dirname(__DIR__, 1) . '\\views\\pages\\Login.php';
+        // if ($this->isLogin()) {
+        //     header('Location: /dashboard');
+        //     exit();
+        // }
+         require_once dirname(__DIR__, 1) . '\\views\\pages\\Login.php';
     }
-    public function loginForm() {
-        $email = $this->regex->ValidationEmail($_POST["email"]);
-        $password = $_POST['password'];
-    
-        if (empty($email) || empty($password)) {
-            $_SESSION['error_login'] = 'password ou email is correcr ';
-            header('Location: /login');
-            exit();
-        }
-  
-        if ($this->login($email, $password)) {
-            $userRole = $_SESSION['user_role']; 
-    
-            if ($userRole === 'admin') {
-                header('Location: /dashboard/admin'); 
-            } elseif ($userRole === 'client') {
-                header('Location: /dashboard/client'); 
-            } elseif ($userRole === 'freelancer') {
-                header('Location: /dashboard/freelancer'); 
-            } else {
-                header('Location: /dashboard');
-            }
-            exit();
-        }
-    
-        // If login fails
-        $_SESSION['error'] = 'Identifiants invalides.';
-        header('Location: /login');
-        exit();
-    }
-    
-    public function login() {
+     public function login() {
         // die("srsdfghjk");
         $email = $this->regex->ValidationEmail($_POST["email"]);
+        // var_dump(  $email);
         $password = $_POST["password"];
         
-        $Utilisateur = new Utilisateur($email, $password);
+        // var_dump(   $email);
+        $Utilisateur = new Utilisateur();
+        $Utilisateur->BuilderUser($email, $password);
+        
                 $user = $Utilisateur->login();
-    
-        if ($user && password_verify($password, $user->getPassword())) {
+            //    var_dump(   $password);
+            // var_dump(   $user->getPassword());
+        if ($password==$user->getPassword()) {
+            // echo "kjbdv";
             session_start();
             $_SESSION['user_id'] = $user->getId();
             $_SESSION['user_email'] = $user->getEmail();
-
-            $_SESSION['user_role'] = $user->getRole()->getName();
-            
-            $_SESSION['user_i'] = $user->getRole()->getId();
             $_SESSION['last_name'] = $user->getLastname();
             $_SESSION['first_name'] = $user->getFirstname();
+          $ObjectRole=  $this->role->findbyid($user->getRoleId(),"roles");
+               $_SESSION['user_role'] = $ObjectRole->getName();
             
-            return true;
+            $_SESSION['user_id'] = $ObjectRole->getId();
+
+            switch ($ObjectRole->getName()) {
+                case 'Freelancer':
+                   header('Location: /Auth/signupviews');
+                   break;
+                case 'Client':
+                    header('Location: /Auth/signupviews');
+                    break;
+                case 'Admin':
+                    header('Location: /Auth/signupviews');
+                    break;
+                default:
+                   header('Location: /W9');
+             }
+             exit();
+          
         }
                 return false;
     }
