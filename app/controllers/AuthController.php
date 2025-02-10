@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use Exception;
 use app\models\Role;
 use app\Core\utils\Regex;
 use app\models\Utilisateur;
@@ -27,6 +28,8 @@ class AuthController{
         require_once dirname(__DIR__, 1) . '\\views\\pages\\SignUp.php';
 
     }
+
+
     public function index(){
 
         // if ($this->isLogin()) {
@@ -112,6 +115,51 @@ public function hasRole($role) {
 
     return true;
 }
+
+public function register()
+{
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    
+        $firstname = $_POST['firstname'];
+        $lastname = $_POST['lastname'];
+        $email = $_POST['email'];
+        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        $phone = $_POST['phone'];
+        $rolename = $_POST['role'];
+        
+    
+        $role = new Role();
+        $role->BuilderRoleWithName($rolename);
+// var_dump($role);
+        try {
+         
+            $user = new Utilisateur(
+                
+            );
+            $user->BuilderUser(
+                $firstname,
+                $lastname,
+                $email,
+                $password,
+                'https://th.bing.com/th/id/OIP.qajuNYox10xSQV4SvryD1AHaHa?w=183&h=183&c=7&r=0&o=5&dpr=1.1&pid=1.7',
+                $role,
+                $phone
+            );
+
+       
+            $createdUser = $this->user->insert("users", $user);
+            if ($createdUser) {
+                $_SESSION['success'] = "Account created successfully!";
+            }
+        } catch (Exception $e) {
+   
+            $_SESSION['error'] = $e->getMessage();
+            header('Location: /signup');
+            exit();
+        }
+    }
+}
+
 }
 
 
