@@ -54,9 +54,11 @@ abstract class Crud implements CrudInterface
         return $stmt->rowCount();
     }
 
-    public function delete(string $table,int $id):int
+    public function delete(string $table,int $id)
     {
-        $sql = "DELETE FROM $table WHERE id = ?";
+        var_dump($id);
+        echo"jdfidws";   
+             $sql = "DELETE FROM $table WHERE id = ?";
         $stmt = Database::getInstance()->getConnection()->prepare($sql);
         $stmt->execute([$id]);
 

@@ -33,8 +33,8 @@ use app\Controllers\MainController;
                 <p class='text-sm text-gray-600'>Durée: $tyys->duration</p>
                 <div class='flex justify-end space-x-2 mt-2'>
                     <button class='bg-yellow-500 text-white px-3 py-1 rounded-md hover:bg-yellow-600'>Modifier</button>
-                    <form method='post'>
-                         <input type='submit' name='supprimmer' value='Supprimmer' class='bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600'>
+                    <form action ='/Project/deleteprojects' method='post'>
+                         <button type='submit' name='supprimmer' value=".$tyys->id." class='bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600'>button</button>
                     </form>
                     
                 </div>
@@ -60,9 +60,11 @@ use app\Controllers\MainController;
 
     
         public  function deleteprojects(){
-            
-          $this->project->delete('Projets', 1);
+        //    die();
+          $this->project->delete('Projets',$_POST["supprimmer"]);
               
+          header('location: ../project');          
+
                      
         }
     }
