@@ -34,7 +34,7 @@ use app\Controllers\MainController;
                 <div class='flex justify-end space-x-2 mt-2'>
                     <button class='bg-yellow-500 text-white px-3 py-1 rounded-md hover:bg-yellow-600'>Modifier</button>
                     <form action ='/Project/deleteprojects' method='post'>
-                         <button type='submit' name='supprimmer' value=".$tyys->id." class='bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600'>button</button>
+                         <button type='submit' name='supprimmer' value=".$tyys->id." class='bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600'>Supprimer</button>
                     </form>
                     
                 </div>
