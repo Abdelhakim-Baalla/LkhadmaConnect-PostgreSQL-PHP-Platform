@@ -14,8 +14,8 @@
  <body class="bg-white text-black font-sans">
   <header class="flex justify-between items-center p-4 border-b">
    <div class="flex items-center space-x-4">
-    <img alt="Upwork logo" class="h-10" height="40" src="https://storage.googleapis.com/a1aa/image/a4pTyjMHUbT9dnhWFKA9jDT9eeBaLqZCPTQjzzvNFKA.jpg" width="100"/>
-    
+  <a href="/Client/setting">  <img alt="Upwork logo" class="h-10" height="40" src="https://storage.googleapis.com/a1aa/image/a4pTyjMHUbT9dnhWFKA9jDT9eeBaLqZCPTQjzzvNFKA.jpg" width="100"/>
+  </a>
     <nav class="hidden md:flex space-x-4">
      <a class="text-gray-700 hover:text-black" href="#">
       Hire talent
@@ -53,12 +53,11 @@
       1
      </span>
     </i>
-   <a href="/Utilisatu"> <i class="fas fa-user-circle text-gray-700">
-        V?KK
-    </i>
+<a href="/Client/setting">
+    <img src="<?php echo $_SESSION['photo']; ?>" title="<?php echo $_SESSION['first_name'] . ' ' . $_SESSION['last_name']; ?>" class="h-12" alt="<?php echo $_SESSION['last_name']; ?>" srcset="">
+  
     </a>
-    <img src="<?php echo $_SESSION['photo']; ?>" alt="" srcset="">
-   </div>
+</div>
   </header>
   <main class="p-8">
    <h1 class="text-2xl font-semibold mb-4">
@@ -84,7 +83,7 @@
     </div>
    </section>
   </main>
-  <div id="jobModal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center">
+   <div id="jobModal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center">
         <div class="bg-white p-6 rounded-lg shadow-lg w-1/3">
             <h2 class="text-xl font-bold mb-4">Publier une offre</h2>
             <form id="jobForm" action="project/addprojects" method="post">

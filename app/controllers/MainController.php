@@ -1,7 +1,7 @@
 <?php
 namespace app\Controllers;
 
-define('PROJECT_ROOTS', dirname(dirname(__DIR__ . '/../')));
+define('PROJECTU', dirname(dirname(__DIR__ . '/../')));
 
 
 
@@ -12,7 +12,7 @@ abstract class MainController
 
     public function renderView(string $folder,string $fichierName,string $title,$result=null):void{
         
-        require_once PROJECT_ROOTS. "\\views\\".$folder."\\".$fichierName.".php";
+        require_once PROJECTU. "\\views\\".$folder."\\".$fichierName.".php";
 
     }
 
