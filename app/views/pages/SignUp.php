@@ -26,14 +26,14 @@
             </div>
           <?php endif; ?>
 
-          <form action="/AuthController" method="POST">
+          <form action="/Auth/register" method="POST">
             
             <div class="form-element mb-4">
               <label for="role" class="block text-gray-700 mb-2">Role</label>
               <select name="role" required class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
                 <option value="">Select Role</option>
-                <option value="TEACHER">Teacher</option>
-                <option value="STUDENT">Student</option>
+                <option value="Client">Client</option>
+                <option value="Freelancer">Freelancer</option>
               </select>
             </div>
 

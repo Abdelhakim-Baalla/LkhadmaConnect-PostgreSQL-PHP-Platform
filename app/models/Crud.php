@@ -11,8 +11,10 @@ abstract class Crud implements CrudInterface
     public function __construct()
     {
     }
+    // public function insert(string $table,array $data):int
 
-    public function insert(string $table,array $data):int
+
+    public function insert(string $table, $data):int
     {
 
         // $car = array("namr" => "Ford", "lastname" => "Mustang", "year" => 1964);

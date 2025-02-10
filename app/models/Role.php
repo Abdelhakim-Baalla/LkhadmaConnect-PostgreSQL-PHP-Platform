@@ -18,8 +18,13 @@ class Role extends Crud{
         if($name == "BuilderRole"){
             if(count($arguments) == 1){
                 $this->id = $arguments[0];
-        }}
-    }
+        }
+        if($name == "BuilderRoleWithName"){
+            if(count($arguments) == 1){
+                $this->role_name = $arguments[0];
+        }
+    
+    }}}
 
     public function getId()
     {
