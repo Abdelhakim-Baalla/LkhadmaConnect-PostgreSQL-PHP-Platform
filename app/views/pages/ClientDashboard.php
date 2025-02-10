@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php session_start(); ?>
 <html lang="en">
  <head>
   <meta charset="utf-8"/>
@@ -52,8 +53,11 @@
       1
      </span>
     </i>
-    <i class="fas fa-user-circle text-gray-700">
+   <a href="/Utilisatu"> <i class="fas fa-user-circle text-gray-700">
+        V?KK
     </i>
+    </a>
+    <img src="<?php echo $_SESSION['photo']; ?>" alt="" srcset="">
    </div>
   </header>
   <main class="p-8">

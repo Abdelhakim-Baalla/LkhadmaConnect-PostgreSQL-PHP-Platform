@@ -7,6 +7,7 @@ use app\models\Role;
 use app\Core\utils\Regex;
 use app\models\Utilisateur;
 use app\Core\config\Database;
+use app\Core\utils\Utils;
 
 class AuthController{
 
@@ -24,19 +25,13 @@ class AuthController{
     }
 
     public function signupviews(){
-
-        require_once dirname(__DIR__, 1) . '\\views\\pages\\SignUp.php';
-
+        Utils::rander("pages","SignUp");
     }
 
 
     public function index(){
+        Utils::rander("pages","Login");
 
-        // if ($this->isLogin()) {
-        //     header('Location: /dashboard');
-        //     exit();
-        // }
-         require_once dirname(__DIR__, 1) . '\\views\\pages\\Login.php';
     }
      public function login() {
         // die("srsdfghjk");
@@ -57,6 +52,8 @@ class AuthController{
             $_SESSION['user_id'] = $user->getId();
             $_SESSION['user_email'] = $user->getEmail();
             $_SESSION['last_name'] = $user->getLastname();
+            $_SESSION['photo'] = $user->getPhoto();
+
             $_SESSION['first_name'] = $user->getFirstname();
           $ObjectRole=  $this->role->findbyid($user->getRoleId(),"roles");
                $_SESSION['user_role'] = $ObjectRole->getName();
@@ -65,16 +62,16 @@ class AuthController{
 
             switch ($ObjectRole->getName()) {
                 case 'Freelancer':
-                   header('Location: /Auth/signupviews');
+                   header('Location: /Freelencer');
                    break;
                 case 'Client':
-                    header('Location: /Auth/signupviews');
+                    header('Location: /Client');
                     break;
                 case 'Admin':
-                    header('Location: /Auth/signupviews');
+                    header('Location: /Admin');
                     break;
                 default:
-                   header('Location: /W9');
+                   header('Location: /');
              }
              exit();
           

@@ -1,5 +1,6 @@
 <?php 
 namespace app\Controllers;
+use app\Core\utils\Utils;
 
 class HomeController{
 
@@ -7,8 +8,7 @@ class HomeController{
 
 
   public  function index(){
-echo "<h1>this is fucking home</h1>";
-        return '';
+    Utils::rander("pages","Home");        
         
     }
   
