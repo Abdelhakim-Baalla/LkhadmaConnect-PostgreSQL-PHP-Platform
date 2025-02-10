@@ -10,11 +10,12 @@
   <script src="https://cdn.tailwindcss.com">
   </script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link rel="shortcut icon" href="https://img.icons8.com/?size=100&id=FUZiNN6aw2Rb&format=png&color=000000" type="image/x-icon">
  </head>
  <body class="bg-white text-black font-sans">
   <header class="flex justify-between items-center p-4 border-b">
    <div class="flex items-center space-x-4">
-  <a href="/Client/setting">  <img alt="Upwork logo" class="h-10" height="40" src="https://storage.googleapis.com/a1aa/image/a4pTyjMHUbT9dnhWFKA9jDT9eeBaLqZCPTQjzzvNFKA.jpg" width="100"/>
+  <a href="/Client/setting">  <img alt="LkhadmaConnect logo" class="h-10 w-10"  src="https://img.icons8.com/?size=100&id=FUZiNN6aw2Rb&format=png&color=000000 " />
   </a>
     <nav class="hidden md:flex space-x-4">
      <a class="text-gray-700 hover:text-black" href="#">
@@ -54,14 +55,14 @@
      </span>
     </i>
 <a href="/Client/setting">
-    <img src="<?php echo $_SESSION['photo']; ?>" title="<?php echo $_SESSION['first_name'] . ' ' . $_SESSION['last_name']; ?>" class="h-12" alt="<?php echo $_SESSION['last_name']; ?>" srcset="">
+    <img src="<?php echo $_SESSION['photo']; ?>" title="<?php echo $_SESSION['first_name'] . ' ' . $_SESSION['last_name']; ?>" class="h-10 w-10 rounded-full" alt="<?php echo $_SESSION['last_name']; ?>" srcset="">
   
     </a>
 </div>
   </header>
   <main class="p-8">
    <h1 class="text-2xl font-semibold mb-4">
-    Good morning, Abdelhakim
+    Bonjour, <?php echo $_SESSION['first_name'] . ' ' . $_SESSION['last_name']; ?>
    </h1>
    
    <section class="mb-8">

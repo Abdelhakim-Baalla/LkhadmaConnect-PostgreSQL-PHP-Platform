@@ -2,7 +2,7 @@
 
 <header class="flex justify-between items-center p-4 border-b">
    <div class="flex items-center space-x-4">
-  <a href="/Client/setting">  <img alt="Upwork logo" class="h-10" height="40" src="https://storage.googleapis.com/a1aa/image/a4pTyjMHUbT9dnhWFKA9jDT9eeBaLqZCPTQjzzvNFKA.jpg" width="100"/>
+   <a href="/Client/setting">  <img alt="LkhadmaConnect logo" class="h-10 w-10"  src="https://img.icons8.com/?size=100&id=FUZiNN6aw2Rb&format=png&color=000000 " />
   </a>
     <nav class="hidden md:flex space-x-4">
      <a class="text-gray-700 hover:text-black" href="#">
