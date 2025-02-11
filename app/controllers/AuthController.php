@@ -53,6 +53,8 @@ class AuthController{
             $_SESSION['user_email'] = $user->getEmail();
             $_SESSION['last_name'] = $user->getLastname();
             $_SESSION['photo'] = $user->getPhoto();
+            $_SESSION['phone'] = $user->getPhone();
+
 
             $_SESSION['first_name'] = $user->getFirstname();
           $ObjectRole=  $this->role->findbyid($user->getRoleId(),"roles");

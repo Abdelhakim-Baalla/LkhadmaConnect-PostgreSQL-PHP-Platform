@@ -43,6 +43,12 @@ class Utilisateur extends Crud
                 $this->firstname = $arguments[1];
                 $this->lastname = $arguments[2];
             }
+            if(count($arguments) == 4){
+                $this->firstname = $arguments[0];
+                $this->lastname = $arguments[1];
+                $this->email = $arguments[2];
+                $this->phone = $arguments[3];
+            }
             if(count($arguments) == 7){
                 $this->id = $arguments[0];
                 $this->firstname = $arguments[1];
@@ -52,8 +58,6 @@ class Utilisateur extends Crud
                 $this->photo = $arguments[5];
                 $this->role = $arguments[6];
                 $this->phone = $arguments[7];
-
-                
             }
             
             if(count($arguments) == 8){

@@ -34,7 +34,8 @@ abstract class Crud implements CrudInterface
         $stmt = Database::getInstance()->getConnection()->prepare($sql);
         $stmt->execute([$id]);
 
-        return $stmt->fetch(PDO::FETCH_OBJ);
+        $stmt->setFetchMode(PDO::FETCH_CLASS, get_class($this));
+        return $stmt->fetch();
     }
     public function selectAll(string $table):array
     {
@@ -48,6 +49,7 @@ abstract class Crud implements CrudInterface
     {
         $setClause = implode(' = ?, ', array_keys($data)) . ' = ?';
         $sql = "UPDATE $table SET $setClause WHERE id = ?";
+        // var_dump(        $sql);
         $stmt = Database::getInstance()->getConnection()->prepare($sql);
         $stmt->execute(array_merge(array_values($data), [$id]));
 
