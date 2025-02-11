@@ -1,4 +1,3 @@
-<?php    session_start();  ?>
 
 <header class="flex justify-between items-center p-4 border-b">
    <div class="flex items-center space-x-4">
