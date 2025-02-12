@@ -13,7 +13,6 @@
    <p class="text-gray-600 mb-6">
     This is a client account
    </p>
-   <!-- <?php var_dump($userInfo); ?> -->
 
    <div class="border-t border-gray-200 pt-6">
     <h2 class="text-xl font-semibold mb-4">

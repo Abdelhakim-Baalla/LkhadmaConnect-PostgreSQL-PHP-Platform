@@ -67,7 +67,9 @@ class AuthController{
                    header('Location: /Freelencer');
                    break;
                 case 'Client':
+
                     header('Location: /Client');
+
                     break;
                 case 'Admin':
                     header('Location: /Admin');

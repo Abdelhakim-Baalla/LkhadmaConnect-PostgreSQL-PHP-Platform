@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<?php session_start(); ?>
 <html lang="en">
  <head>
   <meta charset="utf-8"/>
@@ -76,9 +75,7 @@
      
     <section id="projects" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         <?php 
-            use app\Controllers\ProjectController;
-            $ProjectController = new ProjectController();
-            $ProjectController->findprojects();
+          require_once PROJECTU ."\\views\\component\\projectInfo.php";
            ?>
         </section>
     </div>
