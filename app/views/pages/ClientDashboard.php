@@ -18,7 +18,7 @@
   </a>
     <nav class="hidden md:flex space-x-4">
      <a class="text-gray-700 hover:text-black" href="#">
-      Hire talent
+      Hire
      </a>
      <a class="text-gray-700 hover:text-black" href="#">
       Manage work
