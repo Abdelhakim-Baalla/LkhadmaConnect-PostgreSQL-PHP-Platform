@@ -1,19 +1,24 @@
 <?php
 
 namespace app\models;
+use PDO;
 use app\models\Avi;
-use app\models\Utilisateur;
-use app\models\Categorie;
 use app\models\Crud;
 use app\models\Offre;
+use app\models\Categorie;
+use app\models\Utilisateur;
+use app\Core\config\Database;
+use AllowDynamicProperties;
+use app\Core\utils\Utils;
+#[AllowDynamicProperties]
 
 class Project extends Crud
 {
     private $id;
-    private $title;
+    private $titre;
     private $description;
     private $photo;
-    private $duree;
+    private $duration;
     private $budget;
     private $status;
     private Utilisateur $Freelencer;
@@ -21,6 +26,7 @@ class Project extends Crud
     private Utilisateur $Client;
     private Avi $Avis;
     private Offre $Offer;
+    private $category_id;
 
     public function __construct()
     {
@@ -28,7 +34,7 @@ class Project extends Crud
         // $this->title = $title;
         // $this->description = $description;
         // $this->photo = $photo;
-        // $this->duree = $duree;
+        // $this->duration = $duration;
         // $this->budget = $budget;
         // $this->status = $status;
         // $this->Freelencer = $Freelencer;
@@ -41,7 +47,7 @@ class Project extends Crud
     
         if($name == "BuilderUser"){
             if(count($arguments) == 2){
-                $this->title = $arguments[0];
+                $this->titre = $arguments[0];
                 $this->description = $arguments[1];
             } 
         }
@@ -51,21 +57,25 @@ class Project extends Crud
     {
         return $this->id;
     }
-    public function getTitle()
+    public function getTitre()
     {
-        return $this->title;
+        return $this->titre;
     }
     public function getDescription()
     {
         return $this->description;
     }
+    public function getCategorieId()
+    {
+        return $this->category_id;
+    }
     public function getPhoto()
     {
         return $this->photo;
     }
-    public function getDuree()
+    public function getDuration()
     {
-        return $this->duree;
+        return $this->duration;
     }
     public function getBudget()
     {
@@ -100,9 +110,9 @@ class Project extends Crud
     {
         $this->id = $id;
     }
-    public function setTitle($title)
+    public function setTitre($title)
     {
-        $this->title = $title;
+        $this->titre = $title;
     }
     public function setDescription($description)
     {
@@ -112,9 +122,9 @@ class Project extends Crud
     {
         $this->photo = $photo;
     }
-    public function setDuree($duree)
+    public function setDuration($duration)
     {
-        $this->duree = $duree;
+        $this->duration = $duration;
     }
     public function setBudget($budget)
     {
@@ -143,5 +153,24 @@ class Project extends Crud
     public function setOffer($Offer)
     {
         $this->Offer = $Offer;
+    }
+
+
+    public function search( string $search ):array
+    {
+        $sql = "SELECT * FROM projets where titre LIKE '%$search%' OR description LIKE '%$search%'; ";
+        $stmt = Database::getInstance()->getConnection()->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+    }
+    public function fetchAllProject(){
+
+        $sql = "SELECT * FROM projets";
+        $stmt = Database::getInstance()->getConnection()->prepare($sql);
+        $stmt->execute();
+        
+     $resultat =    $stmt->fetchAll(PDO::FETCH_CLASS,Project::class);
+
+         return $resultat;
     }
 }

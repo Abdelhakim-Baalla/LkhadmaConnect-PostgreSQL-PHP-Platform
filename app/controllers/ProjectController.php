@@ -16,7 +16,7 @@ use app\Controllers\MainController;
         }
 
         public function index(){
-            $this->renderView("pages","ClientDashboard","jbdjsdjsbc",[]);
+            $this->renderView("pages","ClientDashboard","titre",[]);
         }
         
 
@@ -45,7 +45,14 @@ use app\Controllers\MainController;
         //    }
             }
         }
+public function  fetchAllProject(){
 
+  $resultat =  $this->project->fetchAllProject();
+//   var_dump(  $resultat);
+  $this->renderView("component","projectInfo","pages",["project"=>$resultat]);
+
+    
+}
         public  function addprojects(){
             $titre = $_POST['titre'];
             $description = $_POST['description'];

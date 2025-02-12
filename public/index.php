@@ -1,5 +1,6 @@
 <?php
 define('PROJECT_ROOT', dirname(__DIR__));
+session_start(); 
 
 require '../vendor/autoload.php';
 use app\Core\config\Database;
