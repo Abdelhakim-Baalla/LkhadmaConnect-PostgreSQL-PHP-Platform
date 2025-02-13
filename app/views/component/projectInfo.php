@@ -9,12 +9,12 @@
 </head>
 <body class="bg-gray-50 p-4 flex content-center">
 
-    <div class="flex gap-3 mx-auto">
+    <div class="flex flex-wrap gap-3 mx-auto justify-center">
         <?php foreach ($project as $tyys) { ?>
 
-        <div class="bg-white p-2 border border-solid border-black rounded-lg shadow-xl mb-3 transition-transform hover:scale-105">
+        <div class="bg-white p-2 lg:w-[17%] md:w-[40%] sm:w-[60%]  border-[1px] border-solid border-gray-400 rounded-lg shadow-xl mb-3 transition-transform hover:scale-105">
             <div class="flex flex-col justify-center items-center ">
-                <img src="<?php echo $tyys->getPhoto(); ?>" alt="photo of <?php echo $tyys->getTitre(); ?> project" class="w-52 h-35 object-cover rounded-md">
+                <img src="<?php echo $tyys->getPhoto(); ?>" alt="photo of <?php echo $tyys->getTitre(); ?> project" class="w-[100%] h-35 object-cover rounded-md">
                 <div>
                     <h3 class="text-xl text-center font-semibold text-gray-800"><?php echo $tyys->getTitre(); ?></h3>
                     <p class="text-gray-600 mt-1"><?php echo $tyys->getDescription(); ?></p>
@@ -26,10 +26,10 @@
                 <p class="text-sm">Durée: <?php echo $tyys->getDuration(); ?></p>
             </div>
 
-            <div class="flex justify-end space-x-4 mt-4">
-                <button class="bg-yellow-500 text-white px-4 py-2 rounded-md transition-colors hover:bg-yellow-600 focus:outline-none">Modifier</button>
+            <div class="flex justify-center space-x-4 mt-4">
+                <button class="bg-yellow-500 text-white px-1 py-1 text-xs rounded-md transition-colors hover:bg-yellow-600 focus:outline-none">Modifier</button>
                 <form action="/Project/deleteprojects" method="post">
-                    <button type="submit" name="supprimmer" value="<?php echo $tyys->getId(); ?>" class="bg-red-500 text-white px-4 py-2 rounded-md transition-colors hover:bg-red-600 focus:outline-none">Supprimer</button>
+                    <button type="submit" name="supprimmer" value="<?php echo $tyys->getId(); ?>" class="bg-red-500 text-white px-2 py-2 text-xs rounded-md transition-colors hover:bg-red-600 focus:outline-none">Supprimer</button>
                 </form>
             </div>
         </div>
