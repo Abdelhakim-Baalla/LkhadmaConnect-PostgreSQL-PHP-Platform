@@ -59,7 +59,7 @@ class Utilisateur extends Crud
                 $this->role = $arguments[6];
                 $this->phone = $arguments[7];
             }
-            
+          
             if(count($arguments) == 8){
 
                 //To do 
@@ -174,6 +174,23 @@ class Utilisateur extends Crud
     {
         $this->competence = $competence;
     }
+    public function save()
+{
+    $sql = "INSERT INTO users (firstname, lastname, email, password, phone, role_id) VALUES (?, ?, ?, ?, ?, ?)";
+    
+    $stmt = Database::getInstance()->getConnection()->prepare($sql);
+    echo "debut ";
+    $stmt->execute([
+        $this->firstname,
+        $this->lastname,
+        $this->email,
+        $this->password,
+        $this->phone,
+        $this->role->getId()
+    ]);
+echo "finale";
+    return Database::getInstance()->getConnection()->lastInsertId();
+}
 
     public function login() {
       $query ="
