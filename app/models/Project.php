@@ -138,7 +138,7 @@ class Project extends Crud
     {
         $this->Freelencer = $Freelencer;
     }
-    public function setCategorie($categorie)
+    public function setCategorie(Categorie $categorie)
     {
         $this->categorie = $categorie;
     }
@@ -169,8 +169,7 @@ class Project extends Crud
         $stmt = Database::getInstance()->getConnection()->prepare($sql);
         $stmt->execute();
         
-     $resultat =    $stmt->fetchAll(PDO::FETCH_CLASS,Project::class);
-
-         return $resultat;
+     $resultat =$stmt->fetchAll(PDO::FETCH_CLASS,Project::class);
+             return $resultat;
     }
 }
