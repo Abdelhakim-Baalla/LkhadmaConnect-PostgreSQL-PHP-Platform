@@ -5,18 +5,18 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>LkhadmaConnect</title>
 </head>
-<body class="bg-gray-50 p-8 flex content-center">
+<body class="bg-gray-50 p-4 flex content-center">
 
-    <div class="max-w-4xl mx-auto">
+    <div class="flex gap-3 mx-auto">
         <?php foreach ($project as $tyys) { ?>
 
-        <div class="bg-white p-6 rounded-lg shadow-lg mb-6 transition-transform hover:scale-105">
-            <div class="flex items-center space-x-4">
-                <img src="<?php echo $tyys->getPhoto(); ?>" alt="photo of <?php echo $tyys->getTitre(); ?> project" class="w-24 h-24 object-cover rounded-md">
+        <div class="bg-white p-2 border border-solid border-black rounded-lg shadow-xl mb-3 transition-transform hover:scale-105">
+            <div class="flex flex-col justify-center items-center ">
+                <img src="<?php echo $tyys->getPhoto(); ?>" alt="photo of <?php echo $tyys->getTitre(); ?> project" class="w-52 h-35 object-cover rounded-md">
                 <div>
-                    <h3 class="text-xl font-semibold text-gray-800"><?php echo $tyys->getTitre(); ?></h3>
+                    <h3 class="text-xl text-center font-semibold text-gray-800"><?php echo $tyys->getTitre(); ?></h3>
                     <p class="text-gray-600 mt-1"><?php echo $tyys->getDescription(); ?></p>
                 </div>
             </div>
