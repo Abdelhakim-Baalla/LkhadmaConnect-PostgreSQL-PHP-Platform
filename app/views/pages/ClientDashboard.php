@@ -10,21 +10,24 @@
   </script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
   <link rel="shortcut icon" href="https://img.icons8.com/?size=100&id=FUZiNN6aw2Rb&format=png&color=000000" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
  </head>
- <body class="bg-white text-black font-sans">
+ <body class="bg-white text-black font-[Outfit]">
   <header class="flex justify-between items-center p-4 border-b">
    <div class="flex items-center space-x-4">
   <a href="/Client/setting">  <img alt="LkhadmaConnect logo" class="h-10 w-10"  src="https://img.icons8.com/?size=100&id=FUZiNN6aw2Rb&format=png&color=000000 " />
   </a>
     <nav class="hidden md:flex space-x-4">
      <a class="text-gray-700 hover:text-black" href="#">
-      Hire
+      Acceuil
      </a>
      <a class="text-gray-700 hover:text-black" href="#">
-      Manage work
+      Trouver Un freelancer
      </a>
      <a class="text-gray-700 hover:text-black" href="#">
-      Reports
+      Reporter
      </a>
      <a class="text-gray-700 hover:text-black" href="#">
       Messages
@@ -34,21 +37,10 @@
    <div class="flex items-center space-x-4">
     <div class="relative">
      <input class="border rounded-full py-2 px-4 pl-10" placeholder="Search" type="text"/>
-     <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">
+     <i class="fas fa-search absolute left-3 flex items-center top-[100%] h-full transform -translate-y-1/2 text-gray-500">
      </i>
     </div>
-    <div class="relative">
-     <button class="flex items-center space-x-2">
-      <span>
-       Talent
-      </span>
-      <i class="fas fa-caret-down">
-      </i>
-     </button>
-    </div>
-    <i class="fas fa-question-circle text-gray-700">
-    </i>
-    <i class="fas fa-bell text-gray-700 relative">
+    <i class="fas fa-bell text-2xl text-gray-700 relative">
      <span class="absolute top-0 right-0 bg-red-500 text-white rounded-full text-xs w-4 h-4 flex items-center justify-center">
       1
      </span>
@@ -64,13 +56,14 @@
     Bonjour, <?php echo $_SESSION['first_name'] . ' ' . $_SESSION['last_name']; ?>
    </h1>
    
-   <section class="mb-8">
+   <section class="mb-2 flex items-center justify-between">
+           <h2 class="text-xl font-semibold">
+             Votre Offres
+            </h2>
             <button id="openModal" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">+ Publier une offre</button>
         </section>
    <section>
-    <h2 class="text-xl font-semibold mb-4">
-     Overview
-    </h2>
+    
     <div class="border rounded-lg p-2">
      
     <section id="projects" class="">
