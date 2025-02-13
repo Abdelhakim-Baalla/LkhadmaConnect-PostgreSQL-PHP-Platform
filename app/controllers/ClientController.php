@@ -4,25 +4,30 @@ namespace app\controllers;
 use app\Core\utils\Utils;
 use app\models\Utilisateur;
 use app\Controllers\MainController;
+use app\models\Categorie;
 use app\models\Project;
 
 class ClientController extends MainController{
 private Project $project;
     private Utilisateur $user;
+    private Categorie $categorie;
 public function __construct(){
     $this->user = new Utilisateur; 
-    $this->project = new Project;  
+    $this->project = new Project;
+    $this->categorie = new Categorie;  
+  
  
 }
 
 public function index(){
-
-    $resultat =  $this->project->fetchAllProject();
-    // var_dump($resultat);
-      $this->renderView("pages","ClientDashboard","pages",["project"=>$resultat]); 
-           
-
-
+    $resultats =  $this->project->fetchAllProject();
+    // foreach ($resultats as $resultat ) { 
+    // $id = $resultat->getCategorieId();
+    // $this->categorie->setCategorie($this->categorie->findbyid($id));  
+    //   var_dump($resultat);
+    // }       
+// var_dump(  $resultats);
+$this->renderView("pages","ClientDashboard","pages",["project"=>$resultats]); 
 
 }
 public function setting(){

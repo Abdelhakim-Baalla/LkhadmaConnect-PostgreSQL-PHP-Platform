@@ -62,7 +62,7 @@ public function  fetchAllProject(){
 
             $data = ['titre' => "$titre", 'description' => "$description", 'budget' => $budget, 'duration' => $duration, 'photo' => "$photo"];
             $this->project->insert('Projets', $data);  
-            header('location: ../project');          
+            header('location: ../Client');          
         }
 
     

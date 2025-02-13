@@ -1,15 +1,28 @@
 <?php 
 namespace app\models;
-    class Categorie {
+
+use PDO;
+use app\Core\config\Database;
+    class Categorie{
         private $id;
-        private $title;
+        private $titre;
         private $description;
 
-        public function __construct($id, $title, $description) {
-            $this->id = $id;
-            $this->title = $title;
-            $this->description = $description;
+        public function __construct() {
+            // $this->id = $id;
+            // $this->titre = $titre;
+            // $this->description = $description;
         }
+        public function __call($name, $arguments) {
+    
+            if($name == "BuilderCategorie"){
+                if(count($arguments) == 3){
+                    $this->id = $arguments[0];
+                    $this->titre = $arguments[2];
+                    $this->description = $arguments[3];
+                } 
+            }
+            }
 
         public function getId() {
             return $this->id;
@@ -20,11 +33,11 @@ namespace app\models;
         }
 
         public function getTitle() {
-            return $this->title;
+            return $this->titre;
         }
 
         public function setTitle($title) {
-            $this->title = $title;
+            $this->titre = $title;
         }
 
         public function getDescription() {
@@ -33,6 +46,15 @@ namespace app\models;
 
         public function setDescription($description) {
             $this->description = $description;
+        }
+        
+        public function findbyid($id) {
+            $stmt = Database::getInstance()->getConnection()->prepare("SELECT * FROM categories WHERE id = ?");
+            $stmt->execute([$id]);
+            $stmt->setFetchMode(PDO::FETCH_CLASS,Categorie::class);
+// Categorie::class
+            // get_class($this)
+            return $stmt->fetch();
         }
     }
  ?>
