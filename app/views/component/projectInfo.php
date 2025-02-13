@@ -10,8 +10,10 @@
 <body class="bg-gray-50 p-4 flex content-center">
 
     <div class="flex flex-wrap gap-3 mx-auto justify-center">
-        <?php foreach ($project as $tyys) { ?>
-
+        <?php $count = 0; foreach ($project as $tyys) { if ($tyys->getStatus() == 'pending'){ 
+            $count = $count + 1;
+            }else{ ?>
+           
         <div class="bg-white p-2 lg:w-[17%] md:w-[40%] sm:w-[60%]  border-[1px] border-solid border-gray-400 rounded-lg shadow-xl mb-3 transition-transform hover:scale-105">
             <div class="flex flex-col justify-center items-center ">
                 <img src="<?php echo $tyys->getPhoto(); ?>" alt="photo of <?php echo $tyys->getTitre(); ?> project" class="w-[100%] h-35 object-cover rounded-md">
@@ -34,8 +36,20 @@
             </div>
         </div>
 
-        <?php } ?>
+        <?php }} ?>
     </div>
 
+    <div class="justify-center absolute w-1/2 top-[70%] ">
+        <h1 class="my-2">Statistiques</h1>
+        <div class="bg-gray-100 p-2 w-52 border-[1px] border-solid border-gray-400 rounded-lg shadow-xl transition-transform hover:scale-105">
+            <div class="flex gap-5 justify-center items-center ">
+                <h1>Offres Suspendu</h1>
+                <div>
+                    <h3 class="text-xl text-center font-semibold text-gray-800"><?php echo $count;?></h3>
+                </div>
+            </div>
+        </div>
+
+    </div>
 </body>
 </html>
