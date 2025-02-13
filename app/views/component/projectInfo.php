@@ -12,7 +12,7 @@
     <div class="flex flex-wrap gap-3 mx-auto justify-center">
         <?php foreach ($project as $tyys) { ?>
 
-        <div class="bg-white p-2 lg:w-[17%] md:w-[40%] sm:w-[60%]  border border-solid border-black rounded-lg shadow-xl mb-3 transition-transform hover:scale-105">
+        <div class="bg-white p-2 lg:w-[17%] md:w-[40%] sm:w-[60%]  border-[1px] border-solid border-gray-400 rounded-lg shadow-xl mb-3 transition-transform hover:scale-105">
             <div class="flex flex-col justify-center items-center ">
                 <img src="<?php echo $tyys->getPhoto(); ?>" alt="photo of <?php echo $tyys->getTitre(); ?> project" class="w-[100%] h-35 object-cover rounded-md">
                 <div>
