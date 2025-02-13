@@ -71,9 +71,9 @@
     <h2 class="text-xl font-semibold mb-4">
      Overview
     </h2>
-    <div class="border rounded-lg p-8">
+    <div class="border rounded-lg p-2">
      
-    <section id="projects" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <section id="projects" class="">
         <?php 
           require_once PROJECTU ."\\views\\component\\projectInfo.php";
            ?>

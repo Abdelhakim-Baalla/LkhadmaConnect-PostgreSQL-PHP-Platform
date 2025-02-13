@@ -70,7 +70,7 @@ public function  fetchAllProject(){
         //    die();
           $this->project->delete('Projets',$_POST["supprimmer"]);
               
-          header('location: ../project');          
+          header('location: ../Client');          
 
                      
         }
