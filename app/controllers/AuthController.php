@@ -50,6 +50,7 @@ class AuthController{
             // echo "kjbdv";
             session_start();
             $_SESSION['user_id'] = $user->getId();
+            
             $_SESSION['user_email'] = $user->getEmail();
             $_SESSION['last_name'] = $user->getLastname();
             $_SESSION['photo'] = $user->getPhoto();
@@ -89,7 +90,7 @@ public function logout(){
     session_start();
     session_destroy();
 
-    header('Location: /login');
+    header('Location: /');
     exit;
 }
 public function isLogin(){
@@ -119,25 +120,27 @@ public function hasRole($role) {
 
 public function register()
 {
+    var_dump($_REQUEST);
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    
+        echo "snxdj";
+
         $firstname = $_POST['firstname'];
         $lastname = $_POST['lastname'];
         $email = $_POST['email'];
         $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
         $phone = $_POST['phone'];
         $rolename = $_POST['role'];
-        
-    
-        $role = new Role();
-        $role->BuilderRoleWithName($rolename);
-// var_dump($role);
+   
+     $role =   $this->role->findbyname($rolename);
+//   echo   $role->getId();
+    // echo    gettype($role);
+//    var_dump($role);
         try {
          
             $user = new Utilisateur(
                 
             );
-            $user->BuilderUser(
+            $user->BuilderUser(null,
                 $firstname,
                 $lastname,
                 $email,
@@ -146,16 +149,26 @@ public function register()
                 $role,
                 $phone
             );
-
-       
-            $createdUser = $this->user->insert("users", $user);
+       var_dump($user);
+            $createdUser = $this->user->save();
+var_dump($createdUser);
             if ($createdUser) {
                 $_SESSION['success'] = "Account created successfully!";
+                echo "
+                <script>
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Account created successfully!',
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    });
+                </script>
+                ";
             }
         } catch (Exception $e) {
    
             $_SESSION['error'] = $e->getMessage();
-            header('Location: /signup');
+            header('Location: /Auth/register');
             exit();
         }
     }

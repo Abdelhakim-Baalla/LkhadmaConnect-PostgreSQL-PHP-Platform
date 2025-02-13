@@ -16,13 +16,17 @@
      <a class="text-gray-700 hover:text-black" href="#">
       Messages
      </a>
+     <a class="text-gray-700 hover:text-black" href="Auth/logout">
+      logout
+     </a>
     </nav>
    </div>
    <div class="flex items-center space-x-4">
     <div class="relative">
+      <form action="/Project/search" method="post">
      <input class="border rounded-full py-2 px-4 pl-10" placeholder="Search" type="text"/>
      <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">
-     </i>
+     </form>  </i>
     </div>
     <div class="relative">
      <button class="flex items-center space-x-2">

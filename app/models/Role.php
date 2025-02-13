@@ -1,7 +1,9 @@
 <?php 
 namespace app\models;
 
+use PDO;
 use app\models\Crud;
+use app\Core\config\Database;
 
 class Role extends Crud{
     private $id;
@@ -15,16 +17,16 @@ class Role extends Crud{
         // $this->role_description = $description;
     }
     public function __call($name, $arguments) {
-        if($name == "BuilderRole"){
-            if(count($arguments) == 1){
-                $this->id = $arguments[0];
-        }
+        // if($name == "BuilderRole"){
+        //     if(count($arguments) == 1){
+        //         $this->id = $arguments[0];
+        // }
         if($name == "BuilderRoleWithName"){
             if(count($arguments) == 1){
                 $this->role_name = $arguments[0];
         }
     
-    }}}
+    }}
 
     public function getId()
     {
@@ -50,5 +52,11 @@ class Role extends Crud{
     public function setDescription($description)
     {
         $this->role_description = $description;
+    }
+    public function findbyname($role_name) {
+        $stmt = Database::getInstance()->getConnection()->prepare("SELECT * FROM roles WHERE role_name = ?");
+        $stmt->execute([$role_name]);
+        $stmt->setFetchMode(PDO::FETCH_CLASS, get_class($this));
+        return $stmt->fetch();
     }
 }
