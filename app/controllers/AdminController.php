@@ -28,6 +28,13 @@ $this->renderView("pages","DashboardAdmin","Admin",["project"=>$resultats]);
 
 }
 
+function edit(){
+    $this->controlertag->edit();
+
+    header("Location: /Admin/Tag");
+
+}
+
 
 }
 

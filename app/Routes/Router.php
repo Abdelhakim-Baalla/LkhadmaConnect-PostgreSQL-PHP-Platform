@@ -1,6 +1,8 @@
 <?php
 namespace app\Routes;
 
+use app\Core\utils\Utils;
+
 class Router{
     private string $controller = 'app\\controllers\\HomeController';
     private string $method = 'index';
@@ -14,8 +16,14 @@ class Router{
     public function Sender()
     {
         $uri = $_SERVER['REQUEST_URI'] ?? '';
-        $uri = explode('/', trim(strtolower($uri), '/'));
-    // var_dump($uri);
+// if( Utils::map($uri)){
+// }     
+  $uri = explode('/', trim(strtolower($uri), '/'));
+ if(count($uri)==3){
+array_shift($uri);
+ }
+
+ var_dump($uri);
         if (!empty($uri[0])) {
             $controller = ucwords($uri[0]) . 'Controller';
             $controller = "\\app\\Controllers\\" . $controller;
