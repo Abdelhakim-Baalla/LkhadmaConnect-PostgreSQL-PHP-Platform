@@ -179,4 +179,13 @@ class Project extends Crud
      $resultat =$stmt->fetchAll(PDO::FETCH_CLASS,Project::class);
              return $resultat;
     }
+    public function Projects(){
+
+        $sql = "SELECT * FROM projets where status ='pending'";
+        $stmt = Database::getInstance()->getConnection()->prepare($sql);
+        $stmt->execute();
+        
+     $resultat =$stmt->fetchAll(PDO::FETCH_CLASS,Project::class);
+             return $resultat;
+    }
 }

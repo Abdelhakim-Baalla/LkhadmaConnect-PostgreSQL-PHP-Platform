@@ -22,7 +22,9 @@ public function __construct(){
 public function Project(){
     $this->projectcontroller->Project();
 }
-
+public function Projects(){
+    $this->projectcontroller->Projects();
+}
 public function Tag(){
     $this->controlertag->index();
     

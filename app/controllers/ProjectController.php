@@ -90,9 +90,17 @@ public function  fetchAllProject(){
         }
         public function  Project(){
 
-            $resultat =  $this->project->fetchAllProject();
+            $resultat =  $this->project->Projects();
           //   var_dump(  $resultat);
             $this->renderView("component","projectInfoAdmin","pages",["project"=>$resultat]);
+          
+              
+          }
+          public function  Projects(){
+
+            $resultat =  $this->project->fetchAllProject();
+          //   var_dump(  $resultat);
+            $this->renderView("component","DashProject","pages",["project"=>$resultat]);
           
               
           }

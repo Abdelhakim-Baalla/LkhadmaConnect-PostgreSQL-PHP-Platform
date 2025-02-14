@@ -13,8 +13,8 @@
         </a>
         
         <a href="/Admin/Project" class="flex items-center px-4 py-3 text-gray-600 hover:bg-gray-50 rounded-lg mb-2 transition-colors">
-          <i class="bi bi-briefcase mr-3 text-lg"></i>
-          <span>Project</span>
+        <i class="bi bi-star mr-3 text-lg"></i>
+        <span>Validation</span>
         </a>
         
         <a href="/Admin/Tag" class="flex items-center px-4 py-3 text-gray-600 hover:bg-gray-50 rounded-lg mb-2 transition-colors">
@@ -27,9 +27,9 @@
           <span>Categories</span>
         </a>
         
-        <a href="#" class="flex items-center px-4 py-3 text-gray-600 hover:bg-gray-50 rounded-lg mb-2 transition-colors">
-          <i class="bi bi-star mr-3 text-lg"></i>
-          <span>Validation</span>
+        <a href="/Admin/Projects" class="flex items-center px-4 py-3 text-gray-600 hover:bg-gray-50 rounded-lg mb-2 transition-colors">
+        <i class="bi bi-briefcase mr-3 text-lg"></i>
+        <span>Project</span>
         </a>
         
         <a href="#" class="flex items-center px-4 py-3 text-gray-600 hover:bg-gray-50 rounded-lg mb-2 transition-colors">
