@@ -23,7 +23,7 @@ class Router{
 array_shift($uri);
  }
 
- var_dump($uri);
+//  var_dump($uri);
         if (!empty($uri[0])) {
             $controller = ucwords($uri[0]) . 'Controller';
             $controller = "\\app\\Controllers\\" . $controller;

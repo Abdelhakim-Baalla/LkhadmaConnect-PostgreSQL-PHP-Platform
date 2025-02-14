@@ -20,7 +20,21 @@ use app\Controllers\MainController;
         }
         
 
-        
+        public function editstatus(){
+            $project = new Project;
+            $id = $_POST["id"];
+            $status= $_POST["status"];
+            echo $id;
+            echo $status;
+           
+            $project->setId($id);
+            $project->setStatus($status);
+            $project->updatestatus();
+            
+
+            header('location: /Admin/Project');          
+
+        }
 
         public  function findprojects(){
             $projects = $this->project->selectAll('Projets');
@@ -74,5 +88,13 @@ public function  fetchAllProject(){
 
                      
         }
+        public function  Project(){
+
+            $resultat =  $this->project->fetchAllProject();
+          //   var_dump(  $resultat);
+            $this->renderView("component","projectInfoAdmin","pages",["project"=>$resultat]);
+          
+              
+          }
     }
 ?>

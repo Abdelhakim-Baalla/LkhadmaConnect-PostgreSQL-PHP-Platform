@@ -2,18 +2,25 @@
 namespace app\controllers;
 
 
+use app\models\Categorie;
 use app\controllers\TagController;
 use app\Controllers\MainController;
-use app\models\Categorie;
+use app\controllers\ProjectController;
 
 class AdminController extends MainController{
 private TagController $controlertag;
 private CategoriesController $categorieControllers;
+private  ProjectController $projectcontroller;
 public function __construct(){
  $this->controlertag = new TagController;
+ $this->projectcontroller = new ProjectController;
+
  $this->categorieControllers = new CategoriesController;
   
  
+}
+public function Project(){
+    $this->projectcontroller->Project();
 }
 
 public function Tag(){
