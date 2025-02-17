@@ -45,7 +45,7 @@ class Project extends Crud
     }
     public function __call($name, $arguments) {
     
-        if($name == "BuilderUser"){
+        if($name == "BuilderProject"){
             if(count($arguments) == 2){
                 $this->titre = $arguments[0];
                 $this->description = $arguments[1];
@@ -154,7 +154,14 @@ class Project extends Crud
     {
         $this->Offer = $Offer;
     }
-
+    public function updatestatus(){
+        $sql = "UPDATE projets SET status = '{$this->status}' WHERE id = {$this->id}";
+        $stmt = Database::getInstance()->getConnection()->prepare($sql);
+        $stmt->execute();
+        return $stmt->rowCount();
+    }
+    
+    
 
     public function search( string $search ):array
     {
@@ -166,6 +173,15 @@ class Project extends Crud
     public function fetchAllProject(){
 
         $sql = "SELECT * FROM projets";
+        $stmt = Database::getInstance()->getConnection()->prepare($sql);
+        $stmt->execute();
+        
+     $resultat =$stmt->fetchAll(PDO::FETCH_CLASS,Project::class);
+             return $resultat;
+    }
+    public function Projects(){
+
+        $sql = "SELECT * FROM projets where status ='pending'";
         $stmt = Database::getInstance()->getConnection()->prepare($sql);
         $stmt->execute();
         

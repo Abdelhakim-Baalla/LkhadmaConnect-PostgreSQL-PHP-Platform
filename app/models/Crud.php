@@ -55,6 +55,7 @@ abstract class Crud implements CrudInterface
 
         return $stmt->rowCount();
     }
+ 
 
     public function delete(string $table,int $id)
     {

@@ -17,11 +17,26 @@ public function index(){
 $this->renderView("component","tags","Admin",["Alltags"=>$Alltags]); 
 
 }
+public function edit(){
+    $tagEdit = new Tag;
+  
+    $tagEdit->Tagbuilder(
+    $_POST["id"], 
+    $_POST["name"]
+);
+echo "dhf";
+$tagEdit->update();
 
+header("Location: /Admin/Tag");
+
+}
 public function deletetag(){
 $newtag = new Tag;
-$newtag->Tagbuilder($_POST["deleted_tag"]);
-    $this->tags->delete();
+$id = $_POST["deleted_tag"];
+echo $id;
+$name="vct";
+$newtag->Tagbuilder($id,$name);
+$newtag->delete();
 
     header("Location: /Admin/Tag");
 }
@@ -29,16 +44,11 @@ public function Tags(){
     $this->tags->selectAll();
 }
 public function save(){
-    echo $_POST["name"];
     $newtags = new Tag;
-    $newtags->Tagbuilder($_POST["name"]);
-
-$newtags->setId($this->tags->save());
-
-    // var_dump($save);
- die();
+    $name = $_POST["name"] ;
+    $newtags->setName($name);
+      $newtags->setId($newtags->save());
     header("Location: /Admin/Tag");
-
 }
 
 }

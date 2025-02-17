@@ -12,6 +12,22 @@ class Utils{
     }
 
 
+public static function map($uri){
+
+    switch ($uri) {
+        case '/Admin/Admin/edit':
+        
+            header("Location: Tag/edit");
+
+            break;
+        
+        default:
+            # code...
+            break;
+    }
+    return true;
+}
+
 
 
 
