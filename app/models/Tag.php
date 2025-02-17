@@ -15,13 +15,13 @@ use app\Core\config\Database;
         public function __call($name, $arguments) {
     
             if($name == "Tagbuilder"){
-                if(count($arguments) == 3){
+                if(count($arguments) == 2){
                     $this->id = $arguments[0];
-                    $this->name = $arguments[2];
+                    $this->name = $arguments[1];
                 }
                 if($name == "Tagbuilder"){
-                    if(count($arguments) == 1){
-                        $this->id = $arguments[0];
+                    if($arguments == 1){
+                        $this->name = $arguments[0];
                     }  
             
             }
@@ -50,18 +50,28 @@ use app\Core\config\Database;
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_CLASS,Tag::class);
         }
+        public function update(){
+           echo  $this->id;
+            $sql = "UPDATE tags SET name = '{$this->name}' WHERE id = {$this->id}"; 
+            $stmt = Database::getInstance()->getConnection()->prepare($sql);
+            $stmt->execute();
+            return $stmt->rowCount();
+        }
+        
+
         public function delete()
         {                 $sql = "DELETE FROM tags WHERE id = ?";
             $stmt = Database::getInstance()->getConnection()->prepare($sql);
+           echo $this->id;
+           
             $stmt->execute([$this->id]);
     
             return $stmt->rowCount();
         }
-        public function save()
-        {
+        public function save(){
             $sql = "INSERT INTO tags (name) VALUES (?)";
-            $stmt = Database::getInstance()->getConnection()->prepare($sql);
-            $stmt->execute([$this->name]);
+                        $stmt = Database::getInstance()->getConnection()->prepare($sql);
+                       $stmt->execute([$this->name]);
             return Database::getInstance()->getConnection()->lastInsertId();
         }
     }
