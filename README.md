@@ -1,5 +1,7 @@
 # 🚀 LkhadmaConnect-PostgreSQL-PHP-Platform 
 
+[Parcours du projet](PARCOURS.md)
+
 [Diagramme du domaine freelance](https://github.com/Abdelhakim-Baalla/LkhadmaConnect-PostgreSQL-PHP-Platform/blob/main/docs/diagrams/Diagram_PNG/ClassDiagram%28lkhadma%29.png)
 
 ![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
